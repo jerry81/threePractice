@@ -31,7 +31,10 @@
         const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
 
         //material
-        const material = new THREE.MeshBasicMaterial({ color: 0x44aa88 });
+        // no lighting effect
+        // const material = new THREE.MeshBasicMaterial({ color: 0x44aa88 });
+        // with lighting effect 
+        const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 });
 
         //mesh 
         const cube = new THREE.Mesh(geometry, material);
@@ -39,11 +42,19 @@
         // add mesh to scene 
         scene.add(cube);
 
+        // lighting 
+
+        const color = 0xFFFFFF // 0x in js is hexadecimal (type number?), white light
+        const intensity = 1
+        const light = new THREE.DirectionalLight(color, intensity)
+        light.position.set(-1, 2, 4); // x, y, z, light coming from upper-left-back?
+        scene.add(light)
+
         // animation 
         function render(time) {
             time *= 0.001;  // convert time to seconds
 
-            cube.rotation.x = time;
+            cube.rotation.x = time; // rotations are in radians
             cube.rotation.y = time;
 
             renderer.render(scene, camera);
