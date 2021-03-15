@@ -5,12 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "http-server .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "http-server": "^0.12.3",
     "three": "^0.126.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.25.1",
+    "webpack-cli": "^4.5.0"
   }
 }

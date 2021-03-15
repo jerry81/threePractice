@@ -39,9 +39,27 @@ frustrum - part of solid between two parallel planes cutting the solid
 scenegraph - tree structure containing scene, meshes, light, group, object#d, camera 
 children in graph positioned relative to parents 
 
+jsconfig.json - used by VSCode
+
 ## basic hello world 
 
 <img src="https://threejsfundamentals.org/threejs/lessons/resources/images/threejs-1cube-no-light-scene.svg">
+
+### preqrequisites
+
+es6 modules - allow us to use import and export 
+<!-- <script type="module"> must be used in script tag -->
+
+document.querySelector for accessing DOM with css selector
+
+defer - <!-- <element defer> --> equivalent to using onload event
+
+closure - function inside of function - the function is created every time it is called, variables inside are closed on, making a class variable type of thing
+
+never use var
+
+never use for in, use for of (newer)
+iterate keys/values of object with for (const [key, value] of Object.entries(obj))
 
 ### troubleshooting 
 
@@ -49,6 +67,13 @@ issue: TypeError: Module specifier does not start with "/", "./", or "../".
 
 javascript modules not working
 
-### eloquent js modules 
+[Webpack with node_modules](https://www.toptal.com/javascript/a-guide-to-managing-webpack-dependencies)
 
-from [this link](https://eloquentjavascript.net/10_modules.html#h_hF2FmOVxw7)
+[Beginners guide to Webpack](https://www.sitepoint.com/webpack-beginner-guide/)
+
+### webpack 
+
+entry - the module that wp uses to start building depenency graph (default ./src/index.js)
+output - where to emit bundles (./dist/main.js)
+loaders - allow webpack to convert non js and json files to be packaged
+
