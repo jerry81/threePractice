@@ -7,10 +7,53 @@
 </html>
 
 <script type="module">
-    import * as THREE from '../build/three.module.js'; 
+    import * as THREE from '../build/three.module.js';
 
     function main() {
         const canvas = document.querySelector('#c');
-        const renderer = new THREE.WebGLRenderer({ canvas });
+        const renderer = new THREE.WebGLRenderer({ canvas }); // uses WebGL to render 3d onto canvas
+
+        // create camera 
+        const fov = 75; //field of vision
+        const aspect = 2;  // the canvas default - aspect ratio?
+        const near = 0.1; // near (anything closer not rendered)
+        const far = 5; // far limit (anything futher not rendered)
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        camera.position.z = 2
+
+        // scene
+        const scene = new THREE.Scene()
+
+        // geometry
+        const boxWidth = 1
+        const boxHeight = 1
+        const boxDepth = 1
+        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
+        //material
+        const material = new THREE.MeshBasicMaterial({ color: 0x44aa88 });
+
+        //mesh 
+        const cube = new THREE.Mesh(geometry, material);
+
+        // add mesh to scene 
+        scene.add(cube);
+
+        // animation 
+        function render(time) {
+            time *= 0.001;  // convert time to seconds
+
+            cube.rotation.x = time;
+            cube.rotation.y = time;
+
+            renderer.render(scene, camera);
+
+            requestAnimationFrame(render);
+        }
+
+        // add scene and caamera to renderer
+        requestAnimationFrame(render);
     }
+
+    main()
 </script>
