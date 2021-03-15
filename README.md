@@ -42,3 +42,13 @@ children in graph positioned relative to parents
 ## basic hello world 
 
 <img src="https://threejsfundamentals.org/threejs/lessons/resources/images/threejs-1cube-no-light-scene.svg">
+
+### troubleshooting 
+
+issue: TypeError: Module specifier does not start with "/", "./", or "../".
+
+javascript modules not working
+
+### eloquent js modules 
+
+from [this link](https://eloquentjavascript.net/10_modules.html#h_hF2FmOVxw7)
